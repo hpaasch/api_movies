@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from movie_app.models import Movie, Rater, Rating
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -30,10 +29,3 @@ class RatingSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_movie_title(self, rating):
         return rating.item_id.movie_title
-
-
-# item_id = serializers.SlugRelatedField(
-#     many=False,
-#     read_only=True,
-#     slug_field='movie_title'
-#  )
