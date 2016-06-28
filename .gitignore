@@ -2,3 +2,7 @@
 __pycache__
 *.pyc
 .direnv
+u.data
+u.item
+u.user
+db.sqlite3
