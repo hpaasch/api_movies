@@ -21,9 +21,19 @@ class RaterSerializer(serializers.ModelSerializer):
         fields = ('user_id', 'age', 'gender', 'occupation', 'zip_code')
 
 
-class RatingSerializer(serializers.ModelSerializer):
-# paginate this
+class RatingSerializer(serializers.HyperlinkedModelSerializer):
+    movie_title = serializers.SerializerMethodField()
+
     class Meta:
         model = Rating
-        fields = ('user_id', 'item_id', 'rating', 'timestamp')
-        # paginate_by = 100
+        fields = ('user_id', 'item_id', 'rating', 'timestamp', 'movie_title')
+
+    def get_movie_title(self, rating):
+        return rating.item_id.movie_title
+
+
+# item_id = serializers.SlugRelatedField(
+#     many=False,
+#     read_only=True,
+#     slug_field='movie_title'
+#  )
