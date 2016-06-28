@@ -1,9 +1,8 @@
 from rest_framework import serializers
 
-from movie_app.models import Movie, Rater
+from movie_app.models import Movie, Rater, Rating
 
 class MovieSerializer(serializers.ModelSerializer):
-    # add data you want to calculate
 
     class Meta:
         model = Movie
@@ -20,3 +19,11 @@ class RaterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rater
         fields = ('user_id', 'age', 'gender', 'occupation', 'zip_code')
+
+
+class RatingSerializer(serializers.ModelSerializer):
+# paginate this
+    class Meta:
+        model = Rating
+        fields = ('user_id', 'item_id', 'rating', 'timestamp')
+        # paginate_by = 100
