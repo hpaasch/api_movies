@@ -1,0 +1,8 @@
+This is an API server for a large database of movie ratings. The database includes
+three tables: Movies, Raters, Ratings.
+
+The database was established with data migrations. The API is built using the
+Django REST framework.
+
+The ratings contain two foreign keys, displayed as hyperlinks. The ratings also
+include an added field showing the movie_title as a convenient reference field.
